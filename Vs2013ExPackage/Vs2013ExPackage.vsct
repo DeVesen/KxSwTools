@@ -1,0 +1,522 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  
+  <Extern href="stdidcmd.h"/>
+  <Extern href="vsshlids.h"/>
+
+  <Commands package="guidVs2013ExPackagePkg">
+
+    <Menus>
+      <!--Hauptmenü-->
+      <!--Hauptmenü-->
+      <!--Hauptmenü-->
+      <Menu guid="guidMenuElements" id="Menu_TopLevel" priority="0x700" type="Menu">
+        <Parent guid="guidSHLMainMenu" id="IDG_VS_MM_TOOLSADDINS" />
+        <Strings>
+          <ButtonText>Kardex 2.0</ButtonText>
+          <CommandName>Kardex 2.0</CommandName>
+        </Strings>
+      </Menu>
+      
+      <!--Menü - GP Start UP-->
+      <!--Menü - GP Start UP-->
+      <!--Menü - GP Start UP-->
+      <Menu guid="guidMenuElements" id="Menu_GPStartUP" priority="0x700" type="Menu">
+        <Parent guid="guidGroupUtilities" id="GroupUtilities" />
+        <Strings>
+          <ButtonText>GP: Startup</ButtonText>
+          <!--<CommandName>cmdGPStartup</CommandName>-->
+        </Strings>
+      </Menu>
+
+      <!--Menü - GP Special Docu-->
+      <!--Menü - GP Special Docu-->
+      <!--Menü - GP Special Docu-->
+      <Menu guid="guidMenuElements" id="Menu_GPSpecialDocu" priority="0x700" type="Menu">
+        <Parent guid="guidGroupUtilities" id="GroupUtilities" />
+        <Strings>
+          <ButtonText>GP: Special Docu</ButtonText>
+          <!--<CommandName>cmdGPStartup</CommandName>-->
+        </Strings>
+      </Menu>
+
+      <!--Menü - GP Special Actions-->
+      <!--Menü - GP Special Actions-->
+      <!--Menü - GP Special Actions-->
+      <Menu guid="guidMenuElements" id="Menu_GPSpecialActions" priority="0x700" type="Menu">
+        <Parent guid="guidGroupUtilities" id="GroupUtilities" />
+        <Strings>
+          <ButtonText>GP: Special Actions</ButtonText>
+          <!--<CommandName>cmdGPStartup</CommandName>-->
+        </Strings>
+      </Menu>
+
+      <!--Menü - GP Database Actions-->
+      <!--Menü - GP Database Actions-->
+      <!--Menü - GP Database Actions-->
+      <Menu guid="guidMenuElements" id="Menu_GPDatabaseActions" priority="0x700" type="Menu">
+        <Parent guid="guidGroupUtilities" id="GroupUtilities" />
+        <Strings>
+          <ButtonText>GP: Database Actions</ButtonText>
+          <!--<CommandName>cmdGPStartup</CommandName>-->
+        </Strings>
+      </Menu>
+
+      <!--Menü - GP Database Actions-->
+      <!--Menü - GP Database Actions-->
+      <!--Menü - GP Database Actions-->
+      <Menu guid="guidMenuElements" id="Menu_GPDeployActions" priority="0x700" type="Menu">
+        <Parent guid="guidGroupUtilities" id="GroupUtilities" />
+        <Strings>
+          <ButtonText>GP: Deploy Actions</ButtonText>
+          <!--<CommandName>cmdGPStartup</CommandName>-->
+        </Strings>
+      </Menu>
+
+    </Menus>
+
+
+    <Groups>
+      <!--Gruppe - Kommentare-->
+      <!--Gruppe - Kommentare-->
+      <!--Gruppe - Kommentare-->
+      <Group guid="guidGroup_SourceComments" id="Group_SourceComments" priority="0x1001">
+        <Parent guid="guidMenuElements" id="Menu_TopLevel"/>
+      </Group>
+
+      <!--Gruppe - Utillities-->
+      <!--Gruppe - Utillities-->
+      <!--Gruppe - Utillities-->
+      <Group guid="guidGroupUtilities" id="GroupUtilities" priority="0x1002">
+        <Parent guid="guidMenuElements" id="Menu_TopLevel"/>
+      </Group>
+
+
+
+      <!--Gruppe - GP Start UP-->
+      <!--Gruppe - GP Start UP-->
+      <!--Gruppe - GP Start UP-->
+      <Group guid="guidGroup_GPStartUP" id="Group_GPStartUP" priority="0x1001">
+        <Parent guid="guidMenuElements" id="Menu_GPStartUP"/>
+      </Group>
+      <Group guid="guidGroup_GPStartProjInst" id="Group_GPStartProjInst" priority="0x1002">
+        <Parent guid="guidMenuElements" id="Menu_GPStartUP"/>
+      </Group>
+
+      <!--Gruppe - GP Special Docu-->
+      <!--Gruppe - GP Special Docu-->
+      <!--Gruppe - GP Special Docu-->
+      <Group guid="guidGroup_GPSpecialDocu" id="Group_GPSpecialDocu" priority="0x1001">
+        <Parent guid="guidMenuElements" id="Menu_GPSpecialDocu"/>
+      </Group>
+
+      <!--Gruppe - GP Special Actions-->
+      <!--Gruppe - GP Special Actions-->
+      <!--Gruppe - GP Special Actions-->
+      <Group guid="guidGroup_GPSpecialActions" id="Group_GPSpecialActions" priority="0x1001">
+        <Parent guid="guidMenuElements" id="Menu_GPSpecialActions"/>
+      </Group>
+
+
+
+      <!--Gruppe - GP Database Actions 01-->
+      <!--Gruppe - GP Database Actions 01-->
+      <!--Gruppe - GP Database Actions 01-->
+      <Group guid="guidGroup_GPDatabaseActions01" id="Group_GPDatabaseActions01" priority="0x1001">
+        <Parent guid="guidMenuElements" id="Menu_GPDatabaseActions"/>
+      </Group>
+      <!--Gruppe - GP Database Actions 02-->
+      <!--Gruppe - GP Database Actions 02-->
+      <!--Gruppe - GP Database Actions 02-->
+      <Group guid="guidGroup_GPDatabaseActions02" id="Group_GPDatabaseActions02" priority="0x1002">
+        <Parent guid="guidMenuElements" id="Menu_GPDatabaseActions"/>
+      </Group>
+      <!--Gruppe - GP Database Actions 02-->
+      <!--Gruppe - GP Database Actions 02-->
+      <!--Gruppe - GP Database Actions 02-->
+      <Group guid="guidGroup_GPDatabaseActions03" id="Group_GPDatabaseActions03" priority="0x1003">
+        <Parent guid="guidMenuElements" id="Menu_GPDatabaseActions"/>
+      </Group>
+
+
+      <!--Gruppe - GP Database Actions 02-->
+      <!--Gruppe - GP Database Actions 02-->
+      <!--Gruppe - GP Database Actions 02-->
+      <Group guid="guidGroup_GPDeployActions01" id="Group_GPDeployActions01" priority="0x1001">
+        <Parent guid="guidMenuElements" id="Menu_GPDeployActions"/>
+      </Group>
+
+    </Groups>
+
+
+    <Buttons>
+      <!--Quellcode Kommentare-->
+      <!--Quellcode Kommentare-->
+      <!--Quellcode Kommentare-->
+      <Button guid="guidGroup_SourceComments" id="SourceCodeComment_Line" priority="0x0101" type="Button">
+        <Parent guid="guidGroup_SourceComments" id="Group_SourceComments" />
+        <Icon guid="imageStram" id="bmpCommentLine" />
+        <Strings>
+          <CommandName>cmdSourceCodeComment_Line</CommandName>
+          <ButtonText>Comment: Line</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="guidGroup_SourceComments" id="SourceCodeComment_Start" priority="0x0102" type="Button">
+        <Parent guid="guidGroup_SourceComments" id="Group_SourceComments" />
+        <Icon guid="imageStram" id="bmpCommentStart" />
+        <Strings>
+          <CommandName>cmdSourceCodeComment_Start</CommandName>
+          <ButtonText>Comment: Start</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="guidGroup_SourceComments" id="SourceCodeComment_Block" priority="0x0103" type="Button">
+        <Parent guid="guidGroup_SourceComments" id="Group_SourceComments" />
+        <Icon guid="imageStram" id="bmpCommentBlock" />
+        <Strings>
+          <CommandName>cmdSourceCodeComment_Block</CommandName>
+          <ButtonText>Comment: Block</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="guidGroup_SourceComments" id="SourceCodeComment_End" priority="0x0104" type="Button">
+        <Parent guid="guidGroup_SourceComments" id="Group_SourceComments" />
+        <Icon guid="imageStram" id="bmpCommentEnde" />
+        <Strings>
+          <CommandName>cmdSourceCodeComment_Ende</CommandName>
+          <ButtonText>Comment: Ende</ButtonText>
+        </Strings>
+      </Button>
+
+      
+      
+      <!--GP Start UP-->
+      <!--GP Start UP-->
+      <!--GP Start UP-->
+      <Button guid="guidGroup_GPStartUP" id="PreparePPG" priority="0x0101" type="Button">
+        <Parent guid="guidGroup_GPStartUP" id="Group_GPStartUP" />
+        <Icon guid="imageStram" id="bmpTools" />
+        <Strings>
+          <!--<CommandName>cmdPreparePPG</CommandName>-->
+          <ButtonText>Prepare PPG</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="guidGroup_GPStartUP" id="PrepareFPG" priority="0x0102" type="Button">
+        <Parent guid="guidGroup_GPStartUP" id="Group_GPStartUP" />
+        <Icon guid="imageStram" id="bmpTools" />
+        <Strings>
+          <!--<CommandName>cmdPrepareFPG</CommandName>-->
+          <ButtonText>Prepare FPG</ButtonText>
+        </Strings>
+      </Button>
+
+      <Button guid="guidGroup_GPStartProjInst" id="StartInst_ConfigWizard" priority="0x0102" type="Button">
+        <Parent guid="guidGroup_GPStartProjInst" id="Group_GPStartProjInst" />
+        <Icon guid="imageStram" id="bmpGPConfig" />
+        <Strings>
+          <!--<CommandName>cmdPreparePPG</CommandName>-->
+          <ButtonText>Start Inst: GP.ConfigWizard</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="guidGroup_GPStartProjInst" id="StartInst_RuleEngine" priority="0x0102" type="Button">
+        <Parent guid="guidGroup_GPStartProjInst" id="Group_GPStartProjInst" />
+        <Icon guid="imageStram" id="bmpGPRE" />
+        <Strings>
+          <!--<CommandName>cmdPreparePPG</CommandName>-->
+          <ButtonText>Start Inst: GP.RuleEngine</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="guidGroup_GPStartProjInst" id="StartInst_MachineControlService" priority="0x0103" type="Button">
+        <Parent guid="guidGroup_GPStartProjInst" id="Group_GPStartProjInst" />
+        <Icon guid="imageStram" id="bmpGPMCS" />
+        <Strings>
+          <!--<CommandName>cmdPrepareFPG</CommandName>-->
+          <ButtonText>Start Inst: GP.MachineControlService</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="guidGroup_GPStartProjInst" id="StartInst_CrossEnterpriseUnit" priority="0x0104" type="Button">
+        <Parent guid="guidGroup_GPStartProjInst" id="Group_GPStartProjInst" />
+        <Icon guid="imageStram" id="bmpGPCEU" />
+        <Strings>
+          <!--<CommandName>cmdPrepareFPG</CommandName>-->
+          <ButtonText>Start Inst: GP.CrossEnterpriseUnit</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="guidGroup_GPStartProjInst" id="StartInst_UIWin" priority="0x0105" type="Button">
+        <Parent guid="guidGroup_GPStartProjInst" id="Group_GPStartProjInst" />
+        <Icon guid="imageStram" id="bmpGPUIWIN" />
+        <Strings>
+          <!--<CommandName>cmdPrepareFPG</CommandName>-->
+          <ButtonText>Start Inst: GP.UI.Win</ButtonText>
+        </Strings>
+      </Button>
+
+
+      <!--Menü - GP Special Docu-->
+      <!--Menü - GP Special Docu-->
+      <!--Menü - GP Special Docu-->
+      <Button guid="guidGroup_GPSpecialDocu" id="GPSpecialDescDocu" priority="0x0101" type="Button">
+        <Parent guid="guidGroup_GPSpecialDocu" id="Group_GPSpecialDocu" />
+        <Icon guid="imageStram" id="bmpDocument" />
+        <Strings>
+          <!--<CommandName>cmdPrepareFPG</CommandName>-->
+          <ButtonText>Special-Docu</ButtonText>
+        </Strings>
+      </Button>
+
+
+      <!--Menü - GP Special Actions-->
+      <!--Menü - GP Special Actions-->
+      <!--Menü - GP Special Actions-->
+      <Button guid="guidGroup_GPSpecialActions" id="GPSpecialActions_GPUpdateWcf" priority="0x0101" type="Button">
+        <Parent guid="guidGroup_GPSpecialActions" id="Group_GPSpecialActions" />
+        <Icon guid="imageStram" id="bmpCodeOutline" />
+        <Strings>
+          <!--<CommandName>cmdPrepareFPG</CommandName>-->
+          <ButtonText>WCF-Code-Generator</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="guidGroup_GPSpecialActions" id="GPSpecialActions_GPUpdateDB" priority="0x0102" type="Button">
+        <Parent guid="guidGroup_GPSpecialActions" id="Group_GPSpecialActions" />
+        <Icon guid="imageStram" id="bmpCodeOutline" />
+        <Strings>
+          <!--<CommandName>cmdPrepareFPG</CommandName>-->
+          <ButtonText>Update DB</ButtonText>
+        </Strings>
+      </Button>
+
+
+
+      <!--Menü - GP Database Actions 01-->
+      <!--Menü - GP Database Actions 01-->
+      <!--Menü - GP Database Actions 01-->
+      <Button guid="guidGroup_GPDatabaseActions01" id="GPDatabaseActions_ClearDB" priority="0x0101" type="Button">
+        <Parent guid="guidGroup_GPDatabaseActions01" id="Group_GPDatabaseActions01" />
+        <Icon guid="imageStram" id="bmpDatabaseBlue" />
+        <Strings>
+          <!--<CommandName>cmdPrepareFPG</CommandName>-->
+          <ButtonText>Clear Database</ButtonText>
+        </Strings>
+      </Button>
+      <!--Menü - GP Database Actions 02-->
+      <!--Menü - GP Database Actions 02-->
+      <!--Menü - GP Database Actions 02-->
+      <Button guid="guidGroup_GPDatabaseActions02" id="GPDatabaseActions_LoadBackup" priority="0x0101" type="Button">
+        <Parent guid="guidGroup_GPDatabaseActions02" id="Group_GPDatabaseActions02" />
+        <Icon guid="imageStram" id="bmpDatabaseRed" />
+        <Strings>
+          <!--<CommandName>cmdPrepareFPG</CommandName>-->
+          <ButtonText>Load Backup</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="guidGroup_GPDatabaseActions02" id="GPDatabaseActions_SaveBackup" priority="0x0102" type="Button">
+        <Parent guid="guidGroup_GPDatabaseActions02" id="Group_GPDatabaseActions02" />
+        <Icon guid="imageStram" id="bmpDatabaseGreen" />
+        <Strings>
+          <!--<CommandName>cmdPrepareFPG</CommandName>-->
+          <ButtonText>Save Backup</ButtonText>
+        </Strings>
+      </Button>
+      <!--Menü - GP Database Actions 03-->
+      <!--Menü - GP Database Actions 03-->
+      <!--Menü - GP Database Actions 03-->
+      <Button guid="guidGroup_GPDatabaseActions03" id="GPDatabaseActions_TaskResetStatus" priority="0x0101" type="Button">
+        <Parent guid="guidGroup_GPDatabaseActions03" id="Group_GPDatabaseActions03" />
+        <Icon guid="imageStram" id="bmpSQL" />
+        <Strings>
+          <!--<CommandName>cmdPrepareFPG</CommandName>-->
+          <ButtonText>Task: Reset Status</ButtonText>
+        </Strings>
+      </Button>
+
+      
+
+      <!--Menü - GP Deploy Actions 01-->
+      <!--Menü - GP Deploy Actions 01-->
+      <!--Menü - GP Deploy Actions 01-->
+      <Button guid="guidGroup_GPDeployActions01" id="GPDeployActions_AverpCustDir" priority="0x0101" type="Button">
+        <Parent guid="guidGroup_GPDeployActions01" id="Group_GPDeployActions01" />
+        <Icon guid="imageStram" id="bmpBox" />
+        <Strings>
+          <!--<CommandName>cmdPrepareFPG</CommandName>-->
+          <ButtonText>Averp: Customer Directory</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="guidGroup_GPDeployActions01" id="cmGPDeployActions_DeployGP" priority="0x0102" type="Button">
+        <Parent guid="guidGroup_GPDeployActions01" id="Group_GPDeployActions01" />
+        <Icon guid="imageStram" id="bmpFire" />
+        <Strings>
+          <!--<CommandName>cmdPrepareFPG</CommandName>-->
+          <ButtonText>Averp: Deploy GP</ButtonText>
+        </Strings>
+      </Button>
+
+
+
+    </Buttons>
+
+    <Bitmaps>
+      <Bitmap
+          guid="imageStram"
+          href="Resources\Images.png"
+          usedList="bmpCommentLine, bmpCommentStart, bmpCommentBlock, bmpCommentEnde,
+                    bmpDocument, bmpFire, bmpBox,
+                    bmpDatabaseGreen, bmpDatabaseRed, bmpDatabaseBlue, bmpDatabaseBlack,
+                    bmpTools, bmpArrow, bmpHome, bmpCodeOutline,
+                    bmpGPUIWIN, bmpGPRE, bmpGPMCS, bmpGPCEU, bmpGPConfig,
+                    bmpSQL"/>
+    </Bitmaps>
+    
+
+  </Commands>
+
+  <Symbols>
+    <GuidSymbol name="guidVs2013ExPackagePkg" value="{C568AFAB-BD85-4D61-B6C5-038DBC76D32E}" />
+
+    <!--Manüelemente-->
+    <!--Manüelemente-->
+    <!--Manüelemente-->
+    <GuidSymbol name="guidMenuElements" value="{A360580D-C903-4C30-807E-87FE6DEFF96E}">
+      <IDSymbol name="Menu_TopLevel" value="0x1001" />
+      <IDSymbol name="Menu_GPStartUP" value="0x1002" />
+      <IDSymbol name="Menu_GPSpecialDocu" value="0x1003" />
+      <IDSymbol name="Menu_GPSpecialActions" value="0x1004" />
+      <IDSymbol name="Menu_GPDatabaseActions" value="0x1005" />
+      <IDSymbol name="Menu_GPDeployActions" value="0x1006" />
+    </GuidSymbol>
+    
+    
+
+    <!--Gruppe - Quellcode Kommentare-->
+    <!--Gruppe - Quellcode Kommentare-->
+    <!--Gruppe - Quellcode Kommentare-->
+    <GuidSymbol name="guidGroup_SourceComments" value="{E6FDD5E9-B7A1-4461-ACE0-3B94984403E2}">
+      <IDSymbol name="Group_SourceComments" value="0x1100" />
+
+      <IDSymbol name="SourceCodeComment_Line" value="0x1101" />
+      <IDSymbol name="SourceCodeComment_Start" value="0x1102" />
+      <IDSymbol name="SourceCodeComment_Block" value="0x1103" />
+      <IDSymbol name="SourceCodeComment_End" value="0x1104" />
+    </GuidSymbol>
+
+    
+    
+    <!--Gruppe - Utillities-->
+    <!--Gruppe - Utillities-->
+    <!--Gruppe - Utillities-->
+    <GuidSymbol name="guidGroupUtilities" value="{FC960767-B6B2-4183-8931-0167E364DCE2}">
+      <IDSymbol name="GroupUtilities" value="0x1200" />
+    </GuidSymbol>
+
+    <!--Gruppe - GP Start UP-->
+    <!--Gruppe - GP Start UP-->
+    <!--Gruppe - GP Start UP-->
+    <GuidSymbol name="guidGroup_GPStartUP" value="{5897C192-ACBE-4045-A35A-D34F53139D9A}">
+      <IDSymbol name="Group_GPStartUP" value="0x1300" />
+      
+      <IDSymbol name="PreparePPG" value="0x1301" />
+      <IDSymbol name="PrepareFPG" value="0x1302" />
+    </GuidSymbol>
+    <GuidSymbol name="guidGroup_GPStartProjInst" value="{FA2EEAB7-3335-4613-A611-A0F45DDAD020}">
+      <IDSymbol name="Group_GPStartProjInst" value="0x1350" />
+      
+      <IDSymbol name="StartInst_ConfigWizard" value="0x1351" />
+      <IDSymbol name="StartInst_RuleEngine" value="0x1352" />
+      <IDSymbol name="StartInst_MachineControlService" value="0x1353" />
+      <IDSymbol name="StartInst_CrossEnterpriseUnit" value="0x1354" />
+      <IDSymbol name="StartInst_UIWin" value="0x1355" />
+    </GuidSymbol>
+
+    <!--Menü - GP Special Docu-->
+    <!--Menü - GP Special Docu-->
+    <!--Menü - GP Special Docu-->
+    <GuidSymbol name="guidGroup_GPSpecialDocu" value="{B4A6ED41-58E6-4F2E-AABF-88067C5BBD6E}">
+      <IDSymbol name="Group_GPSpecialDocu" value="0x1400" />
+
+      <IDSymbol name="GPSpecialDescDocu" value="0x1401" />
+    </GuidSymbol>
+
+    <!--Menü - GP Special Actions-->
+    <!--Menü - GP Special Actions-->
+    <!--Menü - GP Special Actions-->
+    <GuidSymbol name="guidGroup_GPSpecialActions" value="{BD6DB39D-A100-4651-A8B8-2AF5AD4A1F8C}">
+      <IDSymbol name="Group_GPSpecialActions" value="0x1500" />
+
+      <IDSymbol name="GPSpecialActions_GPUpdateWcf" value="0x1501" />
+      <IDSymbol name="GPSpecialActions_GPUpdateDB" value="0x1502" />
+    </GuidSymbol>
+
+    
+    
+    <!--Menü - GP Database Actions 01-->
+    <!--Menü - GP Database Actions 01-->
+    <!--Menü - GP Database Actions 01-->
+    <GuidSymbol name="guidGroup_GPDatabaseActions01" value="{ED49BACF-DA8A-4C72-A399-B372FA976068}">
+      <IDSymbol name="Group_GPDatabaseActions01" value="0x1600" />
+
+      <IDSymbol name="GPDatabaseActions_ClearDB" value="0x1601" />
+    </GuidSymbol>
+    <!--Menü - GP Database Actions 02-->
+    <!--Menü - GP Database Actions 02-->
+    <!--Menü - GP Database Actions 02-->
+    <GuidSymbol name="guidGroup_GPDatabaseActions02" value="{6103AC14-93AD-479B-9C9D-597BB7D45C3D}">
+      <IDSymbol name="Group_GPDatabaseActions02" value="0x1700" />
+
+      <IDSymbol name="GPDatabaseActions_LoadBackup" value="0x1701" />
+      <IDSymbol name="GPDatabaseActions_SaveBackup" value="0x1702" />
+    </GuidSymbol>
+    <!--Menü - GP Database Actions 03-->
+    <!--Menü - GP Database Actions 03-->
+    <!--Menü - GP Database Actions 03-->
+    <GuidSymbol name="guidGroup_GPDatabaseActions03" value="{90F47311-B470-42D9-BA1F-0A5A7285B932}">
+      <IDSymbol name="Group_GPDatabaseActions03" value="0x1800" />
+
+      <IDSymbol name="GPDatabaseActions_TaskResetStatus" value="0x1801" />
+    </GuidSymbol>
+
+
+
+    <!--Menü - GP Deploy Actions 01-->
+    <!--Menü - GP Deploy Actions 01-->
+    <!--Menü - GP Deploy Actions 01-->
+    <GuidSymbol name="guidGroup_GPDeployActions01" value="{662CB501-3DDA-4F65-BE38-55C148A2165C}">
+      <IDSymbol name="Group_GPDeployActions01" value="0x1900" />
+
+      <IDSymbol name="GPDeployActions_AverpCustDir" value="0x1901" />
+      <IDSymbol name="cmGPDeployActions_DeployGP" value="0x1902" />
+    </GuidSymbol>
+
+
+
+    <!--BILDER   BILDER   BILDER-->
+    <!--BILDER   BILDER   BILDER-->
+    <!--BILDER   BILDER   BILDER-->
+    <GuidSymbol name="imageStram" value="{51285CF3-A52C-4362-A469-5F36CD114395}" >
+      <IDSymbol name="bmpCommentLine" value="1" />
+      <IDSymbol name="bmpCommentStart" value="2" />
+      <IDSymbol name="bmpCommentBlock" value="3" />
+      <IDSymbol name="bmpCommentEnde" value="4" />
+
+      <IDSymbol name="bmpDocument" value="5" />
+      <IDSymbol name="bmpFire" value="6" />
+      <IDSymbol name="bmpBox" value="7" />
+
+      <IDSymbol name="bmpDatabaseGreen" value="8" />
+      <IDSymbol name="bmpDatabaseRed" value="9" />
+      <IDSymbol name="bmpDatabaseBlue" value="10" />
+      <IDSymbol name="bmpDatabaseBlack" value="11" />
+      
+      <IDSymbol name="bmpTools" value="12" />
+      <IDSymbol name="bmpArrow" value="13" />
+      <IDSymbol name="bmpHome" value="14" />
+      <IDSymbol name="bmpCodeOutline" value="15" />
+      
+      <IDSymbol name="bmpGPUIWIN" value="16" />
+      <IDSymbol name="bmpGPRE" value="17" />
+      <IDSymbol name="bmpGPMCS" value="18" />
+      <IDSymbol name="bmpGPCEU" value="19" />
+      <IDSymbol name="bmpGPConfig" value="20" />
+      
+      <IDSymbol name="bmpSQL" value="21" />
+    </GuidSymbol>
+  </Symbols>
+
+</CommandTable>
