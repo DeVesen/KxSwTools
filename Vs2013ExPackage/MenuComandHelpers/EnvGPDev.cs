@@ -351,10 +351,14 @@ namespace KARDEXSoftwareGmbH.Vs2013ExPackage.MenuComandHelpers
                 {
                     try
                     {
+                        if (!File.Exists(_file.Source))
+                            continue;
+
                         FileInfo _dest01 = new FileInfo(_file.Destination);
                         if (_dest01.Exists)
                         {
                             _dest01.Attributes -= FileAttributes.ReadOnly;
+                            _dest01.Attributes -= FileAttributes.Hidden;
                             _dest01.Delete();
                         }
 
@@ -364,9 +368,10 @@ namespace KARDEXSoftwareGmbH.Vs2013ExPackage.MenuComandHelpers
                         if (_dest02.Exists)
                         {
                             _dest02.Attributes -= FileAttributes.ReadOnly;
+                            _dest01.Attributes -= FileAttributes.Hidden;
                         }
                     }
-                    catch
+                    catch(Exception ex)
                     {
                         // ignored
                     }
@@ -391,6 +396,64 @@ namespace KARDEXSoftwareGmbH.Vs2013ExPackage.MenuComandHelpers
             if (!_solDir.Exists) return;
 
             //Dateien die kopiert werden wüssen
+            //Ab 4.4
+            {
+                // PPG-Bin
+                _fileCollection.Files.Add(new GpFileCollection.FileElement()
+                {
+                    Source = PathHelper.Combine(_solDir, @"packages\Kardex.PowerPick.OEMSupport\lib\GP.OEMSupport.dll"),
+                    Destination = PathHelper.Combine(_solDir, @"BIN\GP.OEMSupport.dll")
+                });
+                _fileCollection.Files.Add(new GpFileCollection.FileElement()
+                {
+                    Source = PathHelper.Combine(_solDir, @"packages\Kardex.PowerPick.OEMSupport\lib\OEMSupportKernel.dll"),
+                    Destination = PathHelper.Combine(_solDir, @"BIN\OEMSupportKernel.dll")
+                });
+                _fileCollection.Files.Add(new GpFileCollection.FileElement()
+                {
+                    Source = PathHelper.Combine(_solDir, @"packages\Kardex.PowerPick.OEMSupport\lib\OEMSupportKernel64.dll"),
+                    Destination = PathHelper.Combine(_solDir, @"BIN\OEMSupportKernel64.dll")
+                });
+                _fileCollection.Files.Add(new GpFileCollection.FileElement()
+                {
+                    Source = PathHelper.Combine(_solDir, @"packages\Kardex.PowerPick.ListLabel\lib\combit.ListLabel21.dll"),
+                    Destination = PathHelper.Combine(_solDir, @"BIN\combit.ListLabel21.dll")
+                });
+                _fileCollection.Files.Add(new GpFileCollection.FileElement()
+                {
+                    Source = PathHelper.Combine(_solDir, @"packages\Kardex.PowerPick.ListLabel\lib\combit.ListLabel21.Web.dll"),
+                    Destination = PathHelper.Combine(_solDir, @"BIN\combit.ListLabel21.Web.dll")
+                });
+
+                // PPG-WebApps-Bin
+                _fileCollection.Files.Add(new GpFileCollection.FileElement()
+                {
+                    Source = PathHelper.Combine(_solDir, @"packages\Kardex.PowerPick.OEMSupport\lib\GP.OEMSupport.dll"),
+                    Destination = PathHelper.Combine(_solDir, @"BIN\webapps\bin\GP.OEMSupport.dll")
+                });
+                _fileCollection.Files.Add(new GpFileCollection.FileElement()
+                {
+                    Source = PathHelper.Combine(_solDir, @"packages\Kardex.PowerPick.OEMSupport\lib\OEMSupportKernel.dll"),
+                    Destination = PathHelper.Combine(_solDir, @"BIN\webapps\bin\OEMSupportKernel.dll")
+                });
+                _fileCollection.Files.Add(new GpFileCollection.FileElement()
+                {
+                    Source = PathHelper.Combine(_solDir, @"packages\Kardex.PowerPick.OEMSupport\lib\OEMSupportKernel64.dll"),
+                    Destination = PathHelper.Combine(_solDir, @"BIN\webapps\bin\OEMSupportKernel64.dll")
+                });
+                _fileCollection.Files.Add(new GpFileCollection.FileElement()
+                {
+                    Source = PathHelper.Combine(_solDir, @"packages\Kardex.PowerPick.ListLabel\lib\combit.ListLabel21.dll"),
+                    Destination = PathHelper.Combine(_solDir, @"BIN\webapps\bin\combit.ListLabel21.dll")
+                });
+                _fileCollection.Files.Add(new GpFileCollection.FileElement()
+                {
+                    Source = PathHelper.Combine(_solDir, @"packages\Kardex.PowerPick.ListLabel\lib\combit.ListLabel21.Web.dll"),
+                    Destination = PathHelper.Combine(_solDir, @"BIN\webapps\bin\combit.ListLabel21.Web.dll")
+                });
+            }
+
+            //Älter als 4.4
             {
                 _fileCollection.Files.Add(new GpFileCollection.FileElement()
                 {
@@ -486,27 +549,36 @@ namespace KARDEXSoftwareGmbH.Vs2013ExPackage.MenuComandHelpers
 
         private void Copy(PlatformItem platformItem)
         {
-            foreach (var _sourceItem in platformItem.SubFiles.OrderBy(p => p))
+            var _destyFolders = new []
             {
-                var _sourceFi = new FileInfo(_sourceItem);
-                var _partlyPath = _sourceFi.FullName.Substring(platformItem.DirectoryInfo.FullName.Length);
-                var _destyFi = new FileInfo(PathHelper.Combine(this.m_solutionDirectory.FullName, "BIN", _partlyPath));
+                PathHelper.Combine(this.m_solutionDirectory.FullName, "BIN"),
+                PathHelper.Combine(this.m_solutionDirectory.FullName, "bin\\webapps\\bin")
+            };
 
-                if (_sourceFi.Exists && !_destyFi.Exists)
+            foreach (var _destyFolderPath in _destyFolders)
+            {
+                foreach (var _sourceItem in platformItem.SubFiles.OrderBy(p => p))
                 {
-                    // ReSharper disable once PossibleNullReferenceException
-                    if (!_destyFi.Directory.Exists)
-                        _destyFi.Directory.Create();
+                    var _sourceFi = new FileInfo(_sourceItem);
+                    var _partlyPath = _sourceFi.FullName.Substring(platformItem.DirectoryInfo.FullName.Length);
+                    var _destyFi = new FileInfo(PathHelper.Combine(_destyFolderPath, _partlyPath));
 
-                    FileHelper.CopyFile(_sourceFi, _destyFi);
-
-                    _destyFi = new FileInfo(_destyFi.FullName);
-
-                    if (!_destyFi.Exists) continue;
-
-                    if ((_destyFi.Attributes & FileAttributes.ReadOnly) == FileAttributes.ReadOnly)
+                    if (_sourceFi.Exists && !_destyFi.Exists)
                     {
-                        _destyFi.Attributes -= FileAttributes.ReadOnly;
+                        // ReSharper disable once PossibleNullReferenceException
+                        if (!_destyFi.Directory.Exists)
+                            _destyFi.Directory.Create();
+
+                        FileHelper.CopyFile(_sourceFi, _destyFi);
+
+                        _destyFi = new FileInfo(_destyFi.FullName);
+
+                        if (!_destyFi.Exists) continue;
+
+                        if ((_destyFi.Attributes & FileAttributes.ReadOnly) == FileAttributes.ReadOnly)
+                        {
+                            _destyFi.Attributes -= FileAttributes.ReadOnly;
+                        }
                     }
                 }
             }
